@@ -1,0 +1,189 @@
+#photogrid{
+    .people{
+        .person{
+            margin-bottom:30px;
+
+            .person__image-wrapper{
+                position: relative;
+                overflow: hidden;
+                
+                &:hover{
+                    cursor: pointer;
+                    .person__icon{
+                        background-color:transparent;
+                        opacity:.6;
+                        border:none;
+                    }
+                    &.person__text{
+                        .person__icon{
+                            background-image:url('/assets/Icons/Plus.svg');
+                        }  
+                    }
+                    
+                    .person__overlay{
+                        opacity: 1;
+                        z-index: 1;
+                        transition: opacity 0.5s;
+                    }
+                }
+                &.active,
+                &.clicked{
+                    .person__icon{
+                        top:33.3%;
+                        right:33.3%;
+                        width:33.3%;
+                        height:33.3%;
+                        border:0;
+                        background-color:transparent;
+                        opacity:.6;
+                        transition:.5s ease-in-out;
+                    }
+                    &.person__text{
+                        .person__icon{
+                            background-image:url('/assets/Icons/Plus.svg');
+                        }  
+                    }
+                    .person__overlay{
+                        opacity: 1;
+                    }
+                }
+            }
+            .person__image{
+                
+            }
+
+            .person__icon{
+                top:10px;
+                right:10px;
+                width:38px;
+                height:38px;
+                border:8px solid $darkyellow;
+                background-color:$darkyellow;
+                background-size:contain;
+                background-repeat: no-repeat;
+                z-index: 3;
+                display: block;
+                position:absolute;
+                transition:.5s ease-in-out;
+            }
+
+            .person__video{
+                .person__icon{
+                    background-image:url('/assets/Icons/Video.svg');
+                }  
+            }
+
+            .person__text{
+                .person__icon{
+                    background-image:url('/assets/Icons/Chat Box.svg');
+                }  
+            }
+
+            .person__name{
+                font-size:36px;
+                color:$darkyellow;
+                text-align: center;
+                margin:1rem 0;
+                @include respond-below(lg) {
+                    font-size:30px;
+                }
+                @include respond-below(md) {
+                    font-size:24px;
+                }
+            }
+            .person__grad{
+                font-family: "Gotham A", "Gotham B", Helvetica Neue, Helvetica, Arial, sans-serif;
+                font-weight:400;
+                font-style: italic;
+                text-align: center;
+                color:$black;
+            }
+            .person__overlay{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: $darkyellow;
+                mix-blend-mode:multiply;
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+                opacity:0;
+            }
+            .modal-dialog{
+                max-width:1200px;
+                width:90%;
+                margin:auto;
+                .modal-content{
+                    border-radius: 0;
+                    background:none;
+                    border:none;
+                    box-shadow: none;
+                    .modal-header{
+                        border:none;
+                        padding: 0;
+                        .close{
+                            text-shadow: none;
+                            opacity: 1;
+                            span{
+                                color: #fff;
+                                opacity: 1;
+                                font-size: 2.75rem;
+                                font-weight: 200;
+                            }  
+                        }
+                    }
+                    .modal-body{
+                        background:#f1f3f6;
+                        padding: 10px 20px;
+
+                        div[class^="col"]{padding-left:5px; padding-right:5px;}
+                       
+                        // Popup Types
+                        .pic{
+                            position: relative;
+                            @include respond-below(md) {
+                                margin-bottom:10px;
+                            }
+                        }
+
+                        .vid{
+                            @include respond-below(md) {
+                                min-height: 50vh;
+                            }
+                        }
+
+                        .text{
+                            display: flex;
+                            align-items: center;
+                            font-size: 1.5rem;
+                            padding: 0 4rem !important;
+                            line-height: 2rem;
+                            @include respond-below(md) {
+                                padding: 2rem !important;
+                                font-size: 1rem;
+                                line-height: 1.5rem;
+                            }
+                        }
+
+                        .overlay{
+                            position: absolute;
+                            bottom: 0;
+                            padding: 1.5rem;
+                            background: rgba(0,0,0,.5);
+                            padding-top: .5rem;
+                            width: 100%;
+                            .person__grad{
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+            }     
+        }
+    }
+    
+    img{
+        max-width: 100%;;
+    }
+}

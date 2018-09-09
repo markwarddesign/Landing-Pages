@@ -1,3 +1,185 @@
+#app{
+    padding-top:60px;
+}
+
 nav{
-    background:$magenta;
+    height:60px;
+    background:$darkgrey;
+    color:white; 
+
+    &.navbar-fixed-top{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 10;
+    }
+   
+    .container{
+        width:100%;
+        max-width: 100%;
+        padding:0 5%;
+    }
+
+    a{
+        
+    } 
+    
+    .navbar-brand{
+        color:white;
+        padding:0;
+        img{
+            height:40px;
+        }
+        @include respond-below(sm){
+            padding:6px 0 10px 0;
+            img{
+                height:33px;
+            } 
+        }
+    }
+    .navbar-toggler{
+        border:none;
+        color:white;
+        border-radius: 0;
+        position: relative;
+        &:focus{
+            outline:0;
+        }
+        &:before {
+            content: "Menu";
+            display: block;
+            position: absolute;
+            right: 100%;
+            margin-right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+            font-family: "Gotham A", "Gotham B", Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-weight: 100;
+            font-size: .8rem;
+            @include respond-below(xs){
+                display:none;
+            }
+        }
+        .icon-bar{
+            transition: all 0.25s linear;
+            width: 25px;
+            height: 3px;
+            border-radius: 0;
+            background-color: #fff;
+            display: block;
+            border-radius: 1px;
+            opacity: 1;
+            + .icon-bar{
+                margin-top:4px;
+            }
+            &:nth-child(2){
+                transform: rotate(45deg) translateY(10px);
+            }
+            &:nth-child(3) {
+                opacity: 0;
+            }
+            &:nth-child(4){
+                transform: rotate(-45deg) translateY(-10px);
+            }
+        }
+        
+        &.collapsed{
+            .icon-bar{
+                &:nth-child(2),
+                &:nth-child(4){
+                    transform: rotate(0);
+                }
+                &:nth-child(3) {
+                    opacity: 1;
+                }
+            }
+            
+        } 
+
+    }
+    .navbar-toggle-icon{
+
+    }
+
+    .navbar-collapse{
+        @include respond-below(lg) {
+            background: linear-gradient(to right bottom, #606874 50%, #5a626d 50%);
+            position: absolute;
+            width: 100%;
+            left: 0px;
+            top: 60px;
+            text-align: right;
+            padding: 2rem 1rem;
+
+            .navbar-nav{
+                margin-bottom:1.5rem;
+            }
+
+            button{
+                margin-right:1rem;
+                
+            }
+        }
+
+        button{
+            &:active,
+            &:focus{
+                background-color:$darkgreen !important;
+                border-color: $darkgreen !important;
+                box-shadow: none !important;
+            }
+            
+        }
+    }
+
+    .nav-item{
+        margin:0 5px;
+        .nav-link{
+            letter-spacing: .02em;
+            font-family: "Gotham A", "Gotham B", Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size:13px;
+            color:white;
+            padding: 10px;
+            &:hover{
+                color:$midgrey;
+            }
+        }
+
+    }
+
+    
+}
+
+.jumbotron{
+    background-image:linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),  url('../assets/Hero.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    height:100vh;
+    @include respond-below(md) {
+        
+    }
+    display: flex;
+    align-items: center;
+    border-radius: 0;
+    h1{
+        color:white;
+        text-align: center;
+        font-size: 48px;
+        line-height: 72px;
+        @include respond-below(lg) {
+            font-size: 36px;
+            line-height: 50px;
+        }
+        @include respond-below(md) {
+            font-size: 28px;
+            line-height: 34px;
+        }
+        @include respond-below(sm) {
+            font-size: 20px;
+            line-height: 28px;
+        }
+    }
+
 }
