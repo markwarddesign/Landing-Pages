@@ -6749,3 +6749,6 @@ footer {
       width: auto;
       display: block;
       margin: auto; }
+
+.container-fluid {
+  max-width: 1200px; }
